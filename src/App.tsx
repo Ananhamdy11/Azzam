@@ -270,12 +270,12 @@ export default function App() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            className="fixed inset-0 z-40 bg-[#152e4d] lg:hidden flex flex-col items-center justify-center gap-8"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            className="fixed inset-0 z-40 bg-[#152e4d] lg:hidden flex flex-col items-center pt-24 gap-10 overflow-y-auto"
           >
-            <button className="absolute top-6 right-6 text-[#e1c37a]" onClick={() => setIsMenuOpen(false)}>
+            <button className="absolute top-6 right-6 text-[#e1c37a] p-2" onClick={() => setIsMenuOpen(false)}>
               <X size={32} />
             </button>
             {NAV_LINKS.map((link) => (
@@ -295,6 +295,16 @@ export default function App() {
             >
               تواصل معنا
             </a>
+
+            {/* Social Icons in Mobile Menu */}
+            <div className="flex gap-6 mt-auto pb-12">
+              <a href="https://www.facebook.com/people/%D8%B9%D8%B2%D8%A7%D9%85-%D9%84%D9%84%D8%A5%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1-%D8%A7%D9%84%D8%B9%D9%82%D8%A7%D8%B1%D9%89-%D9%88%D8%A7%D9%84%D9%85%D9%82%D8%A7%D9%88%D9%84%D8%A7%D8%AA/100064137571129/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 text-[#e1c37a] rounded-full flex items-center justify-center">
+                <Facebook size={20} />
+              </a>
+              <a href="https://wa.me/201001395046" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 text-[#e1c37a] rounded-full flex items-center justify-center">
+                <MessageCircle size={20} />
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
